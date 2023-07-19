@@ -139,8 +139,9 @@ resource "aws_instance" "Prod-Server" {
      sudo apt-get update -y
      sudo apt install docker.io -y
      sudo systemctl enable docker
-     sudo docker run -itd -p 8085:8081 rohanraparthi/insurance:1.0
+     sudo docker run -itd -p 8086:8081 rohanraparthi/banking:1.0
      sudo docker start $(docker ps -aq)
+     sudo docker run -itd -p 9100:9100 prom/node-exporter
  EOF
  tags = {
  Name = "Prod-Server"
